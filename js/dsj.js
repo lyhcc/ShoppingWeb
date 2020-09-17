@@ -37,8 +37,6 @@ var timeSchedule = setInterval(function () {
             changeBox(box1, "<div class=\"btn-purchase buy\">立即秒杀</div>");
             changeBox(box2, "<div class=\"btn-purchase2\" >即将开始</div>");
             changeBox(box3, "<div class=\"btn-purchase2\" >即将开始</div>");
-
-
         } else if (ch == 14) {
             changeBox(box1, "<div class=\"btn-over\" >已结束</div>");
             changeBox(box2, "<div class=\"btn-purchase\" id=\"buy\">立即秒杀</div>");
