@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body,div,p,ul,li,font,span,td,th{}
+        body{
+
+        }
+        .title{
+            margin-top: 100px;
+            font: bold 40px "微软雅黑";
+        }
+        table{
+            border-top-width:1px;
+            border-right-width:1px;
+            border-bottom-width:0px;
+            border-left-width:1px;
+            border-top-style:solid;
+            border-right-style:solid;
+            border-bottom-style:none;
+            border-left-style:solid;
+            border-top-color:#CCCCCC;
+            border-right-color:#CCCCCC;
+            border-bottom-color:#CCCCCC;
+            border-left-color:#CCCCCC;}
+        td{
+            border-bottom-width:1px;
+            border-bottom-style:solid;
+            border-bottom-color:#CCCCCC;
+            font: normal 20px/50px "宋体","微软雅黑";
+            padding-left: 5px;
+            text-align: center;
+        }
+        tr{
+            height: 50px;
+
+        }
+        .EditCell_DropDownList, .EditCell_TextBox{
+            height: 30px;
+            font: normal 20px/30px "宋体","sans-serif";
+        }
+        .EditCell_TextBox{
+            width:90%;
+            border:1px solid #0099CC;
+
+        }
+        .EditCell_DropDownList{
+            width:90%;
+        }
+        .imgUrl{
+            width: 300px;
+            overflow:hidden;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+        }
+        #addRecord{
+            width: 1120px;
+            height: 20px;
+            text-align: center;
+            font: lighter 20px/20px "宋体","sans-serif";
+            font-stretch: ultra-expanded;
+            border: none;
+            background: #e5e5e5;
+        }
+        .bottom-btn{
+            width: 150px;
+            height: 50px;
+            position: absolute;
+            border: none;
+            bottom: 50px;
+            font: bold  30px/50px "宋体","sans-serif","微软雅黑";
+            color: white;
+            text-align: center;
+        }
+        .bottom-btn:hover {
+            cursor: pointer;
+            background: #ffa7a9;
+        }
+        #delete {
+            background: #e8900f;
+
+        }
+        #submit{
+            background: #e85345;
+            margin-left: 900px;
+        }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>添加信息</title>
+    <script src="../js/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/main.css" type="text/css">
+</head>
+
+<body>
+<div class="menu">
+    <span id="myrecord"><a href="./order.html">我的记录</a></span>
+    <span id="loginClick"><a href="../html/login.html">登录</a></span>
+    <script type="text/javascript">
+        function getParams(key) {
+            var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return unescape(r[2]);
+            }
+            return null;
+        };
+        $(document).ready(function(){
+            var user=getParams("user");
+            $('#loginClick').text(getParams("user"))
+            if (user != null) {
+                $('#myrecord').css("display","inline")
+            }
+        });
+
+    </script>
+</div>
+<div style="width:1200px;margin:0 auto;">
+    <form id="form1" name="form1" method="post" action="">
+        <h3 class="title">添加商品</h3>
+        <table width="1082" border="0" cellpadding="0" cellspacing="0" id="tabProduct" style="table-layout:fixed;">
+            <tr>
+                <td width="32" align="center" bgcolor="#EFEFEF" Name="Num"><input type="checkbox" name="checkbox" value="checkbox" /></td>
+                <td width="50" bgcolor="#EFEFEF" Name="Num" id="num">序号</td>
+                <td width="200" bgcolor="#EFEFEF" Name="ProductName" EditType="TextBox">商品名称</td>
+                <td width="50" bgcolor="#EFEFEF" Name="Amount" EditType="TextBox">数量</td>
+                <td width="50" bgcolor="#EFEFEF" Name="Price" EditType="TextBox">单价</td>
+                <td  width="300" bgcolor="#EFEFEF" Name="image" EditType="TextBox">图片地址</td>
+                <td width="300" bgcolor="#EFEFEF" Name="startTime" EditType="DropDownList" DataItems="{text:'10:00-10:10',value:'10:00-10:10'},{text:'14:00-14:10',value:'14:00-14:10'},{text:'16:00-16:10',value:'16:00-16:10'}">时间</td>
+                <td width="100" bgcolor="#EFEFEF" Name="SumMoney" Expression="Amount*Price" Format="#,###.00">售后价格</td>
+
+            </tr>
+            <tr>
+                <td align="center"><input type="checkbox" name="checkbox2" value="checkbox" /></td>
+                <td>1</td>
+                <td Value="c">C</td>
+                <td>1</td>
+                <td>1</td>
+                <td class="imgUrl">http://106.14.28.54/image/华为P40 Pro.jpg</td>
+                <td Value="14:00-14:10">14:00-14:10</td>
+                <td>0</td>
+            </tr>
+            <!--<tr>
+                <td align="center"><input type="checkbox" name="checkbox22" value="checkbox" /></td>
+                <td>2</td>
+                <td Value="d">D</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="imgUrl" style="overflow: hidden">0</td>
+                <td Value="10:00-10:10">10:00-10:10</td>
+                <td>0</td>
+            </tr>-->
+        </table>
+
+        <div id="addRecord"  onclick="AddRow(document.getElementById('tabProduct'),1)" >+</div>
+        <br/>
+        <div id="delete" class="bottom-btn"  onclick="DeleteRow(document.getElementById('tabProduct'),1)">删除</div>
+        <!--<input type="button" name="Submit22" value="重置" onclick="window.location.reload()" />-->
+        <div id="submit" class="bottom-btn"  onclick="GetTableData(document.getElementById('tabProduct'));return false;" >提交</div>
+    </form>
+</div>
+
+<script language="javascript">
+    Date.prototype.Format = function (fmt) {
+        let o = {
+            "M+": this.getMonth() + 1, //月份
+            "d+": this.getDate(), //日
+            "h+": this.getHours(), //小时
+            "m+": this.getMinutes(), //分
+            "s+": this.getSeconds(), //秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+            "S": this.getMilliseconds() //毫秒
+        };
+        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (let k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    };
+    var name = null;
+    //设置多个表格可编辑
+    function EditTables(){
+        for(var i=0;i<arguments.length;i++){
+            SetTableCanEdit(arguments[i]);
+        }
+    }
+
+    //设置表格是可编辑的
+    function SetTableCanEdit(table){
+        for(var i=1; i<table.rows.length;i++){
+            SetRowCanEdit(table.rows[i]);
+        }
+    }
+
+    function SetRowCanEdit(row){
+        for(var j=0;j<row.cells.length; j++){
+
+            //如果当前单元格指定了编辑类型，则表示允许编辑
+            var editType = row.cells[j].getAttribute("EditType");
+            if(!editType){
+                //如果当前单元格没有指定，则查看当前列是否指定
+                editType = row.parentNode.rows[0].cells[j].getAttribute("EditType");
+            }
+            if(editType){
+                row.cells[j].onclick = function (){
+                    EditCell(this);
+                }
+            }
+        }
+
+    }
+
+    //设置指定单元格可编辑
+    function EditCell(element, editType){
+
+        var editType = element.getAttribute("EditType");
+        if(!editType){
+            //如果当前单元格没有指定，则查看当前列是否指定
+            editType = element.parentNode.parentNode.rows[0].cells[element.cellIndex].getAttribute("EditType");
+        }
+
+        switch(editType){
+            case "TextBox":
+                CreateTextBox(element, element.innerHTML);
+                break;
+            case "DropDownList":
+                CreateDropDownList(element);
+                break;
+            default:
+                break;
+        }
+    }
+
+    //为单元格创建可编辑输入框
+    function CreateTextBox(element, value){
+        //检查编辑状态，如果已经是编辑状态，跳过
+        var editState = element.getAttribute("EditState");
+        if(editState != "true"){
+            //创建文本框
+            var textBox = document.createElement("INPUT");
+            textBox.type = "text";
+            textBox.className="EditCell_TextBox";
+
+
+            //设置文本框当前值
+            if(!value){
+                value = element.getAttribute("Value");
+            }
+            textBox.value = value;
+
+            //设置文本框的失去焦点事件
+            textBox.onblur = function (){
+                CancelEditCell(this.parentNode, this.value);
+            }
+            //向当前单元格添加文本框
+            ClearChild(element);
+            element.appendChild(textBox);
+            textBox.focus();
+            textBox.select();
+
+            //改变状态变量
+            element.setAttribute("EditState", "true");
+            element.parentNode.parentNode.setAttribute("CurrentRow", element.parentNode.rowIndex);
+        }
+
+    }
+
+    //为单元格创建选择框
+    function CreateDropDownList(element, value){
+        //检查编辑状态，如果已经是编辑状态，跳过
+        var editState = element.getAttribute("EditState");
+        if(editState != "true"){
+            //创建下接框
+            var downList = document.createElement("Select");
+            downList.className="EditCell_DropDownList";
+
+            //添加列表项
+            var items = element.getAttribute("DataItems");
+            if(!items){
+                items = element.parentNode.parentNode.rows[0].cells[element.cellIndex].getAttribute("DataItems");
+            }
+
+            if(items){
+                items = eval("[" + items + "]");
+                for(var i=0; i<items.length; i++){
+                    var oOption = document.createElement("OPTION");
+                    oOption.text = items[i].text;
+                    oOption.value = items[i].value;
+                    downList.options.add(oOption);
+                }
+            }
+
+            //设置列表当前值
+            if(!value){
+                value = element.getAttribute("Value");
+            }
+            downList.value = value;
+
+            //设置创建下接框的失去焦点事件
+            downList.onblur = function (){
+                CancelEditCell(this.parentNode, this.value, this.options[this.selectedIndex].text);
+            }
+
+            //向当前单元格添加创建下接框
+            ClearChild(element);
+            element.appendChild(downList);
+            downList.focus();
+
+            //记录状态的改变
+            element.setAttribute("EditState", "true");
+            element.parentNode.parentNode.setAttribute("LastEditRow", element.parentNode.rowIndex);
+        }
+
+    }
+
+
+    //取消单元格编辑状态
+    function CancelEditCell(element, value, text){
+        element.setAttribute("Value", value);
+        if(text){
+            element.innerHTML = text;
+        }else{
+            element.innerHTML = value;
+        }
+        element.setAttribute("EditState", "false");
+
+        //检查是否有公式计算
+        CheckExpression(element.parentNode);
+    }
+
+    //清空指定对象的所有字节点
+    function ClearChild(element){
+        element.innerHTML = "";
+    }
+
+    //添加行
+    var rowNum = 1;
+    function AddRow(table, index){
+        var lastRow = table.rows[table.rows.length-1];
+        var newRow = lastRow.cloneNode(true);
+        newRow.cells[1].innerHTML=(++rowNum);
+        table.tBodies[0].appendChild(newRow);
+        SetRowCanEdit(newRow);
+        return newRow;
+    }
+
+
+    //删除行
+    function DeleteRow(table, index){
+        for(var i=table.rows.length - 1; i>1;i--){
+            var chkOrder = table.rows[i].cells[0].firstChild;
+            if(chkOrder){
+                if(chkOrder.type = "CHECKBOX"){
+                    if(chkOrder.checked){
+                        //执行删除
+                        table.deleteRow(i);
+                    }
+                }
+            }
+        }
+    }
+
+    //提取表格的值,JSON格式
+    function GetTableData(table){
+        var tableData = new Array();
+        //alert("行数：" + (table.rows.length-1));
+        for(var i=2; i<table.rows.length;i++){
+            tableData.push(GetRowData(tabProduct.rows[i]));
+        }
+        window.location.reload()
+        return tableData;
+    }
+
+    //提取指定行的数据，JSON格式
+    function GetRowData(row){
+        var rowData = {};
+        for(var j=1;j<row.cells.length; j++){
+            name = row.parentNode.rows[0].cells[j].getAttribute("Name");
+            if(name){
+                var value = row.cells[j].getAttribute("Value");
+                if(!value){
+                    value = row.cells[j].innerHTML;
+                }
+
+            }
+            switch (name){
+                case "ProductName":
+                    rowData.goodsName = value;
+                    break;
+                case "Amount":
+                    rowData.goodsNums = parseInt(value);
+                    break;
+                case "Price":
+                    rowData.price = parseInt(value);
+                    break;
+                case "image":
+                    rowData.image = value;
+                    break;
+                case "startTime":
+                    var strings = value.split("-");
+                    let currentDate = new Date();
+                    //时间判断开始时间是否在今天
+                    if(parseInt(strings[0].split(";")[0])<currentDate.getHours()){
+                        currentDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
+                    }
+                    //时间格式转化 yyyy-MM-dd hh:mm:ss
+                    let format = currentDate.Format("yyyy-MM-dd");
+                    var startTime = format + " " + strings[0] + ":00";
+                    var endTime = format + " " + strings[1] + ":00";
+
+                    rowData.startTime = startTime;
+                    rowData.endTime = endTime;
+                    break;
+
+
+            }
+
+        }
+
+        $.ajax({
+            url: "http://106.14.28.54/kill/add/goodsInfo",
+            data: {
+                    goodsInfo:JSON.stringify(rowData)
+            },
+            type: "POST",
+            dataType: "json",
+            async: false,
+            success: function(data) {
+                data = JSON.parse(JSON.stringify(data));  //dataType指明了返回数据为json类型，故不需要再反序列化
+                if (data.status == 200) {
+                    //
+                    console.log("添加成功")
+                }else{
+                    console.log("添加失败")
+                }
+            }
+        });
+        //alert("ProductName:" + rowData.ProductName);
+        //或者这样：alert("ProductName:" + rowData["ProductName"]);
+        return rowData;
+    }
+
+    //检查当前数据行中需要运行的字段
+    function CheckExpression(row){
+        for(var j=0;j<row.cells.length; j++){
+            expn = row.parentNode.rows[0].cells[j].getAttribute("Expression");
+            //如指定了公式则要求计算
+            if(expn){
+                var result = Expression(row,expn);
+                var format = row.parentNode.rows[0].cells[j].getAttribute("Format");
+                if(format){
+                    //如指定了格式，进行字值格式化
+                    row.cells[j].innerHTML = formatNumber(Expression(row,expn), format);
+                }else{
+                    row.cells[j].innerHTML = Expression(row,expn);
+                }
+            }
+        }
+    }
+
+    //计算需要运算的字段
+    function Expression(row, expn){
+        var rowData = GetRowData_2(row);
+        //循环代值计算
+        for(var j=0;j<row.cells.length; j++){
+            name = row.parentNode.rows[0].cells[j].getAttribute("Name");
+            if(name){
+                var reg = new RegExp(name, "i");
+                expn = expn.replace(reg, rowData[name].replace(/\,/g, ""));
+            }
+        }
+        return eval(expn);
+    }
+    function GetRowData_2(row){
+        var rowData = {};
+        for(var j=0;j<row.cells.length; j++){
+            name = row.parentNode.rows[0].cells[j].getAttribute("Name");
+            if(name){
+                var value = row.cells[j].getAttribute("Value");
+                if(!value){
+                    value = row.cells[j].innerHTML;
+                }
+                rowData[name] = value;
+            }
+        }
+        //alert("ProductName:" + rowData.ProductName);
+        //或者这样：alert("ProductName:" + rowData["ProductName"]);
+        return rowData;
+    }
+    ///////////////////////////////////////////////////////////////////////////////////
+    /**
+     * 格式化数字显示方式
+     * 用法
+     * formatNumber(12345.999,'#,##0.00');
+     * formatNumber(12345.999,'#,##0.##');
+     * formatNumber(123,'000000');
+     * @param num
+     * @param pattern
+     */
+    /* 以下是范例
+    formatNumber('','')=0
+    formatNumber(123456789012.129,null)=123456789012
+    formatNumber(null,null)=0
+    formatNumber(123456789012.129,'#,##0.00')=123,456,789,012.12
+    formatNumber(123456789012.129,'#,##0.##')=123,456,789,012.12
+    formatNumber(123456789012.129,'#0.00')=123,456,789,012.12
+    formatNumber(123456789012.129,'#0.##')=123,456,789,012.12
+    formatNumber(12.129,'0.00')=12.12
+    formatNumber(12.129,'0.##')=12.12
+    formatNumber(12,'00000')=00012
+    formatNumber(12,'#.##')=12
+    formatNumber(12,'#.00')=12.00
+    formatNumber(0,'#.##')=0
+    */
+    function formatNumber(num,pattern){
+        var strarr = num?num.toString().split('.'):['0'];
+        var fmtarr = pattern?pattern.split('.'):[''];
+        var retstr='';
+
+        // 整数部分
+        var str = strarr[0];
+        var fmt = fmtarr[0];
+        var i = str.length-1;
+        var comma = false;
+        for(var f=fmt.length-1;f>=0;f--){
+            switch(fmt.substr(f,1)){
+                case '#':
+                    if(i>=0 ) retstr = str.substr(i--,1) + retstr;
+                    break;
+                case '0':
+                    if(i>=0) retstr = str.substr(i--,1) + retstr;
+                    else retstr = '0' + retstr;
+                    break;
+                case ',':
+                    comma = true;
+                    retstr=','+retstr;
+                    break;
+            }
+        }
+
+        if(i>=0){
+            if(comma){
+                var l = str.length;
+                for(;i>=0;i--){
+                    retstr = str.substr(i,1) + retstr;
+                    if(i>0 && ((l-i)%3)==0) retstr = ',' + retstr;
+                }
+            }
+            else retstr = str.substr(0,i+1) + retstr;
+        }
+
+        retstr = retstr+'.';
+        // 处理小数部分
+        str=strarr.length>1?strarr[1]:'';
+        fmt=fmtarr.length>1?fmtarr[1]:'';
+        i=0;
+        for(var f=0;f<fmt.length;f++){
+            switch(fmt.substr(f,1)){
+                case '#':
+                    if(i<str.length) retstr+=str.substr(i++,1);
+                    break;
+                case '0':
+                    if(i<str.length) retstr+= str.substr(i++,1);
+                    else retstr+='0';
+                    break;
+            }
+        }
+        return retstr.replace(/^,+/,'').replace(/\.$/,'');
+    }
+</script>
+
+<script type="text/javascript">
+    var tabProduct = document.getElementById("tabProduct");
+
+    // 设置表格可编辑
+    // 可一次设置多个，例如：EditTables(tb1,tb2,tb2,......)
+    EditTables(tabProduct);
+</script>
+
+</body>
+</html>

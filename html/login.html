@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>用户登陆</title>
+	<!-- Custom Theme files -->
+	<link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
+	<!-- Custom Theme files -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+
+	<script src="../js/jquery.min.js"></script>
+</head>
+<body>
+<!--header start here-->
+	<div class="login">
+		 <div class="login-main">
+		 		<div class="login-top">
+		 			<img src="../images/head-img.png" alt=""/>
+		 			<h1>用户登录</h1>
+		 			<div class="radiobtn-group">
+						<div class="btn-radio">
+							<input type="radio" id="role1" name="role" value="超级用户" checked/><label>超级用户</label>
+						</div>
+						<div class="btn-radio">
+							<input type="radio" id="role2" name="role" value="普通用户"/><label>普通用户</label>
+						</div>
+					</div>
+					<br/>
+					<input type="name" id="name" placeholder="用户名" required="">
+		 			<div class="login-bottom">
+		 			  <div class="login-check">
+			 			<label class="checkbox"><input type="checkbox" name="checkbox"  checked="checked" /><i> </i> 记 住 我</label>
+			 		  </div>
+			 			<div class="clear"> </div>
+		 			</div>
+		 			<input id="submit" type="submit" value="登录" />
+					<script>
+						$('#submit').click(function () {
+                            var type = $('#role1').attr("checked")=="checked"?0:1;
+                            var name = $('#name').val();
+							$.ajax({
+                                url: "http://106.14.28.54/kill/login/" + name + "/" + type,
+                                data: {},
+                                type: "POST",
+                                dataType: "json",
+                                async: false,
+                                success: function(data) {
+									data = JSON.parse(JSON.stringify(data));  //dataType指明了返回数据为json类型，故不需要再反序列化
+                                    if (type == 1 && data.status == 200) {
+                                        window.location.href = "../index.html?user=" + name;
+                                    }else if (type == 0 && data.status == 200) {
+                                        window.location.href = "../html/addmsg.html?user=" + name;
+                                    }
+                                }
+                            });
+                        })
+					</script>
+		 		</div>
+		 	</div>
+  </div>
+<!--header end here-->
+</body>
+</html>

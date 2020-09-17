@@ -1,0 +1,113 @@
+{
+    "pros1": [{
+            "src": "imgs/1-1.jpg",
+            "title": "乐心(LIFESENSE) MAM",
+            "nprice": "￥79",
+            "oprice": "￥116.5"
+        },
+        {
+            "src": "imgs/1-2.jpg",
+            "title": "达利园 糕点 面包",
+            "nprice": "￥16.9",
+            "oprice": "￥19.9"
+        },
+        {
+            "src": "imgs/1-3.jpg",
+            "title": "美的(Midea) 1.5匹变频",
+            "nprice": "￥2399",
+            "oprice": "￥3099"
+        },
+        {
+            "src": "imgs/1-4.jpg",
+            "title": "黑土小镇小米1.25kg",
+            "nprice": "￥29.8",
+            "oprice": "￥36.8"
+        },
+        {
+            "src": "imgs/1-5.jpg",
+            "title": "耐克(Nike)",
+            "nprice": "￥669",
+            "oprice": "￥699"
+        },
+        {
+            "src": "imgs/6.jpg",
+            "title": "",
+            "nprice": "",
+            "oprice": ""
+        }
+    ],
+    "pros2": [{
+            "src": "imgs/2-1.jpg",
+            "title": "2瓶套餐：送棉签/口罩",
+            "nprice": "￥34",
+            "oprice": "￥39.9"
+        },
+        {
+            "src": "imgs/2-2.jpg",
+            "title": "喜力啤酒500ml*12罐/箱",
+            "nprice": "￥69",
+            "oprice": "￥79"
+        },
+        {
+            "src": "imgs/2-3.jpg",
+            "title": "HLA海澜之家净色简约短袖",
+            "nprice": "￥58",
+            "oprice": "￥69"
+        },
+        {
+            "src": "imgs/2-4.jpg",
+            "title": "[满99减60]逸飞 菜籽油",
+            "nprice": "￥118",
+            "oprice": "￥129"
+        },
+        {
+            "src": "imgs/2-5.jpg",
+            "title": "[鲜过招]酸辣鲜粉190g",
+            "nprice": "￥19.9",
+            "oprice": "￥25.6"
+        },
+        {
+            "src": "imgs/6.jpg",
+            "title": "",
+            "nprice": "",
+            "oprice": ""
+        }
+    ],
+    "pros3": [{
+            "src": "imgs/3-1.jpg",
+            "title": "依能加锌苏打水无糖",
+            "nprice": "￥23.9",
+            "oprice": "￥42.9"
+        },
+        {
+            "src": "imgs/3-2.jpg",
+            "title": "爱自由t-26麦饭石26cm",
+            "nprice": "￥22.9",
+            "oprice": "￥39.9"
+        },
+        {
+            "src": "imgs/3-3.jpg",
+            "title": "[中华特色] 六安馆 农家",
+            "nprice": "￥39.8",
+            "oprice": "￥69.9"
+        },
+        {
+            "src": "imgs/3-4.jpg",
+            "title": "[50片装]亲臣一品超薄",
+            "nprice": "￥32.8",
+            "oprice": "￥38.8"
+        },
+        {
+            "src": "imgs/3-5.jpg",
+            "title": "悦乐朵塑料积木大颗粒20",
+            "nprice": "￥29.9",
+            "oprice": "￥59.9"
+        },
+        {
+            "src": "imgs/6.jpg",
+            "title": "",
+            "nprice": "",
+            "oprice": ""
+        }
+    ]
+}

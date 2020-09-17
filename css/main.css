@@ -1,0 +1,55 @@
+body{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.outer {
+    display: flex;
+    justify-content: center;
+    background: #eeeeee;
+}
+.inner{
+    width: 60%;
+    height: auto;
+}
+.top-desc {
+    height: 281px;
+    background: linear-gradient(217deg, rgba(239, 23, 26, 0.8), rgba(255,0,0,0) 70.71%),
+    linear-gradient(127deg, rgba(255, 239, 92, 0.51), rgba(229, 0, 255, 0.03) 70.71%),
+    linear-gradient(336deg, rgba(255, 240, 255, 0.8), rgba(0,0,255,0) 70.71%);
+    text-align: center;
+}
+.top-img{
+    margin-left: 203px;
+}
+.top-desc .top-img img{
+    height: 275px;
+    margin: 3px;
+}
+.menu{
+    height: 30px;
+    font:lighter 16px/30px "微软雅黑 Light","仿宋";
+    background: #f5f5f5;
+    text-align: right;
+    color: #333333;
+}
+.menu span:nth-child(2){
+    margin-left: 50px;
+    margin-right: 20px;
+}
+.menu span a{
+    text-decoration: none;
+}
+.menu span:hover{
+    color: #e83632;
+    cursor: pointer;
+}
+.login-dialogue{
+    width: 400px;
+    height: 400px;
+    background: snow;
+    display: none;
+}
+#myrecord{
+    display: none;
+}

@@ -1,0 +1,100 @@
+.container {
+    width: 80%;
+    height: 300px;
+    margin-left: 10%;
+}
+.payPage{
+    display:none;
+    width: 50%;
+    height: 400px;
+    background: #6be0e8;
+    position:absolute;
+    top: 100px;
+    left: 500px;
+    box-shadow: 0 0 5px #ccc;
+    z-index: 9;
+}
+.desc-order{
+    width: 100%;
+    height: 300px;
+    background: #eeeeee;
+}
+.btn-group {
+    width: 100%;
+    height: 100px;
+
+    color: #FFFFFF;
+}
+#payThis,#cancelThis {
+    width: 100px;
+    height: 60px;
+    margin-top: 20px;
+    text-align: center;
+    display: inline-block;
+    font: bold 30px/60px "宋体", "sans-serif";
+}
+#payThis{
+    background: #e80822;
+    margin-left: 20px;
+    float: left;
+}
+#cancelThis {
+    background: #e87d30;
+    margin-right: 20px;
+    float: right;
+}
+#phone {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.desc span:nth-of-type(1){
+    display: inline-block;
+    font: normal 28px/50px "微软雅黑", "sans-serif";
+}
+.desc span:nth-of-type(2){
+    font: normal 20px/40px "微软雅黑", "sans-serif";
+}
+.desc span:nth-of-type(3){
+    font: normal 20px/40px "微软雅黑", "sans-serif";
+}
+.desc .tagInterval200{
+    margin-left: 200px;
+    display: inline-block;
+}
+.desc div{
+    display: inline-block;
+}
+#decsImg {
+    width: 250px;
+    margin-top: 65px;
+    margin-left: 10px;
+}
+.desc{
+    width: 60%;
+    display: inline-block;
+    margin-left: 50px;
+    margin-top: 65px;
+    vertical-align: top;
+}
+#desc-name {
+    width: 100%;
+    height: 50px;
+    color: black;
+    font: bold 30px/50px "微软雅黑", "sans-serif";
+}
+#desc-price{
+    display: inline-block;
+    color: #e83632;
+    font: normal 30px/50px "微软雅黑", "sans-serif";
+    padding-right: 100px;
+}
+#killid{
+    color: rgba(133, 133, 133, 0.96);
+    font: lighter 20px/40px "宋体","sans-serif";
+}
+#desc-addr{
+    color: rgba(0, 0, 0, 0.63);
+    font: lighter 20px/40px "宋体","sans-serif";
+}
